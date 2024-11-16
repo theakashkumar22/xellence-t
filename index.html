@@ -556,16 +556,16 @@
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" placeholder="Enter your name" required>
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                </div>
+                </div>-->
                 <div class="form-group">
                     <label for="message">Message</label>
                     <textarea id="message" name="message" placeholder="Write your message here" rows="5" required></textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit">Send Message</button>
+                    <button type="button" id="sendMessageButton">Send Message</button>
                 </div>
             </form>
         </div>
@@ -584,6 +584,32 @@
             const nav = document.querySelector('.navbar ul');
             nav.classList.toggle('active');
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const sendMessageButton = document.getElementById("sendMessageButton");
+
+    sendMessageButton.addEventListener("click", function () {
+        // Get form values
+        const name = document.getElementById("name").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        // Validate input
+        if (!name || !message) {
+            alert("Please fill out all fields.");
+            return;
+        }
+
+        // Construct the mailto link
+        const email = "amazonakash22@gmail.com";
+        const subject = `Message from ${name}`;
+        const body = encodeURIComponent(message); // Encode message to handle special characters
+        const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+        // Open the mailto link
+        window.location.href = mailtoLink;
+    });
+});
+
     </script>
 
 </body>
