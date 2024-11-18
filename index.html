@@ -511,7 +511,7 @@
                     <li><strong>Key Offerings:</strong> Herbal shampoos, organic oils, and skincare products.</li>
                     <li><strong>Why Choose Us:</strong> Cruelty-free and eco-friendly practices.</li>
                 </ul>
-                <a href="how.html">Learn More</a>
+                <a href="#" id="herbio-link">Learn More</a>
             </div>
 
             <!-- Venture 2 -->
@@ -611,6 +611,13 @@
     });
 });
 
+<script>
+    document.getElementById("herbio-link").addEventListener("click", function (e) {
+        e.preventDefault();
+        window.location.href = "how.html"; // Redirect to how.html when "Herbio" is clicked
+    });
+</script>
+        
     </script>
 
 </body>
